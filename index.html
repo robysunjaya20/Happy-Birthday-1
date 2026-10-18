@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun! 🎂</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================
+SECTION LOCK-SCREEN
+========================= -->        
+<section class="lock-screen" id="lockScreen">
+    <div class="lock-card">
+        
+        <h1 class="lock-title">Unlock Surprise</h1>
+        <p class="lock-subtitle">
+            Masukkan tanggal lahir kamu
+        </p>
+
+        <div class="pin-display" id="pinDisplay"></div>
+        
+        <div class="keypad">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button class="delete" id="deleteBtn">⌫</button>
+            <button class="key">0</button>
+            <button class="ok" id="okBtn">✓</button>
+        </div>
+        
+    </div>
+</section>
+
+
+<div id="mainWebsite"> <!-- MAIN WEBSITE -->
+    
+<audio id="bgMusic" loop>
+    <source src="music/semogaya.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="music-btn"></button>
+        
+<!-- =========================
+SECTION WELCOME
+========================= -->        
+<div class="screen active" id="screen-welcome">
+    <img src="img/gallery_2a.jpg" alt="Foto Teman" class="profile-photo">
+    <h1>
+        Happy Birthday <br> Salma Salsabilla 🥳
+    </h1>
+    <p>
+        Hari ini hari yang spesial karena kamu lagi ulang tahun,
+        jadi aku udah nyiapin kejutan kecil dan beberapa permainan
+        buat kamu, semoga bisa bikin kamu senyum dan hari ini jadi
+        makin berkesan. Udah siap mulai? 💖
+    </p>
+    <button type="button" onclick="nextScreen('screen-game1')">Mulai Permainan 💖</button>
+</div>
+
+<!-- =========================
+SECTION GAME 1
+========================= -->        
+<div class="screen" id="screen-game1">
+    <h2>
+        Level 1: Tangkap Hati
+    </h2>
+    <p>
+        Tangkap 10 hati yang muncul untuk membuka level berikutnya.
+    </p>
+
+    <div id="score">
+        Hati: 0 / 10
+    </div>
+
+    <div id="game-container"></div>
+    
+</div>
+
+<!-- =========================
+SECTION GAME 2
+========================= -->        
+<div class="screen" id="screen-game2">
+    <h2>
+        Level 2: Seberapa Kenal Kita?
+    </h2>
+
+    <p id="question-text">
+        Pertanyaan akan muncul di sini.
+    </p>
+
+    <div class="options-container" id="options"></div>
+</div>
+
+<!-- =========================
+SECTION GAME 3
+========================= -->        
+<div class="screen-game3" id="screen-game3">
+    
+    <div class="memory-card">
+        
+        <h1>Level 3: Love Memory</h1>
+        <p class="subtitle">
+            Temukan pasangan kartu
+        </p>
+        
+        <div class="info-box">
+            
+            <div class="info-item">
+                <div class="info-label">❤️ Pasangan</div>
+                <div class="info-value">
+                    <span id="pairCount">0</span>/6
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="info-item">
+                <div class="info-label">⏰ Waktu</div>
+                <div class="info-value" id="timer">00:00</div>
+            </div>
+            
+        </div>
+        
+        <div class="board" id="board"></div>
+        
+    </div>
+    
+    <div class="popup" id="popup">
+        <div class="popup-card">
+            
+            <div class="popup-icon">
+                🎉
+            </div>            
+            <h2>
+                Selamat!
+            </h2>            
+            <p>
+                Kamu berhasil menemukan<br>
+                semua pasang kartu ❤️
+            </p>           
+            <div class="popup-info">                
+                <div>
+                    Pasangan<br>
+                    <b>6 / 6</b>
+                </div>                
+                <div>
+                    Waktu<br>
+                    <b id="finishTime">00:00</b>
+                </div>
+            </div>
+            
+            <button id="nextButton">Next</button>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+<!-- =========================
+GALLERY
+========================= -->
+
+<div class="screen" id="screen-gallery">
+
+    <div class="gallery-grid">
+
+        <div class="polaroid">
+            <img src="img/gallery_1a.jpg">
+        </div>
+
+        <div class="polaroid">
+            <img src="img/gallery_2a.jpg">
+        </div>
+
+        <div class="polaroid">
+            <img src="img/gallery_3a.jpg">
+        </div>
+
+        <div class="polaroid">
+            <img src="img/gallery_4a.jpg">
+        </div>
+
+    </div>
+
+    <div
+        class="envelope-wrapper"
+        onclick="openLetter()">
+
+        <div class="envelope">
+            ✉️
+            <p>BUKA SURAT</p>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="photoPreview">
+    <div class="preview-backdrop"></div>
+    <img id="previewImage">
+</div>
+
+<!-- =========================
+LETTER PAGE
+========================= -->
+<div id="letterPage">
+    <div class="letter" id="letter">
+
+        <div class="letter-header">
+            <h1 class="letter-title show">Happy<br>Birthday</h1>
+
+            <div class="letter-name">
+                <span id="letterName"></span><span id="letterNameCursor" class="letter-cursor">|</span>
+            </div>
+        </div>
+
+        <div class="letter-message">
+            <span id="letterText"></span><span id="letterCursor" class="letter-cursor">|</span>
+        </div>
+
+        <div class="letter-signature">
+            <div class="signature-text">Your Husband,</div>
+            <div class="signature-name">Roby S</div>
+        </div>
+        
+        <div class="gift" id="giftBox">
+            <div class="lid"></div>
+            <div class="box"></div>
+        </div>
+
+        <canvas id="giftCanvas"></canvas>
+
+    </div>
+</div>
+
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
